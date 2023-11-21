@@ -2,7 +2,9 @@
 <p>Full Name: {{ fullName() }}</p>
 
 <ul>
-  <li *ngFor="let item of array">{{ item }}</li>
+  <li *ngFor="let item of array()">{{ item }}</li>
 </ul>
 <br>
 <button (click)="updateName()">Update Name</button>
+<br>
+<button (click)="updateArray()">Update Array</button>

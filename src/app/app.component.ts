@@ -14,7 +14,7 @@ export class AppComponent {
     return this.firstName() + ' '+ this.lastName()
   })
 
-  public array = [1]
+  public array = signal<Array<number>>([1])
 
   constructor() { }
 
@@ -22,10 +22,33 @@ export class AppComponent {
   }
 
   public updateName() {
-    this.firstName.set('Jubisleia')
+    // this.firstName.set('Jubisleia')
+    this.firstName.update((oldValue) => {
+      console.log(oldValue);
+      return 'Cristine Schio'
+    })
   }
 
-  public updateArray() {}
+  public updateArray() {
+    this.array.mutate((oldValue)=>{
+      console.log(oldValue);
+      return oldValue.push(Number(oldValue.at(-1)) + 1)
+    })
+  }
+
+  // public updateArray() {
+  //   this.array.mutate((oldValue)=>{
+  //     console.log(oldValue);
+  //     return oldValue.push(2)
+  //   })
+  // }
+
+  // public updateArray() {
+  //   this.array.update((oldValue)=>{
+  //     console.log(oldValue);
+  //     return [...oldValue, 2]
+  //   })
+  // }
 
 
 }
