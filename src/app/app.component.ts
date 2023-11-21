@@ -1,4 +1,4 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, effect } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +16,16 @@ export class AppComponent {
 
   public array = signal<Array<number>>([1])
 
-  constructor() { }
+  constructor() {
+
+    effect(()=> {
+      // console.log(this.firstName);
+      if(this.array().length > 5) {
+        alert('è recomendado interar até 5 números.')
+      }
+    })
+
+   }
 
   ngOnInit(): void {
   }
