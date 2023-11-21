@@ -1,4 +1,5 @@
 import { Component, signal, computed, effect } from '@angular/core';
+import { UpdateServiceService } from './services/update-service.service';
 
 @Component({
   selector: 'app-root',
@@ -16,14 +17,16 @@ export class AppComponent {
 
   public array = signal<Array<number>>([1])
 
-  constructor() {
+  constructor(public updateServiceService: UpdateServiceService) {
 
-    effect(()=> {
-      // console.log(this.firstName);
-      if(this.array().length > 5) {
-        alert('è recomendado interar até 5 números.')
-      }
-    })
+    effect(()=>{})
+
+    // effect(()=> {
+    //   // console.log(this.firstName);
+    //   if(this.array().length > 5) {
+    //     alert('è recomendado interar até 5 números.')
+    //   }
+    // })
 
    }
 
