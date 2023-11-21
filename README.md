@@ -1,2 +1,0 @@
-# angular-signals
-angular-signals
